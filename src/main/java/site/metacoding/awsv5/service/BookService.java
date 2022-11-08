@@ -20,8 +20,10 @@ public class BookService {
 
     @Transactional(rollbackFor = RuntimeException.class)
     public BookRespDto 책등록(BookSaveReqDto reqDto) {
+
         Book bookEntity = bookRepository.save(reqDto.toEntity());
         return new BookRespDto(bookEntity);
+
     }
 
     @Transactional(readOnly = true)
